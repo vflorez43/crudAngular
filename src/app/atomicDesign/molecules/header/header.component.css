@@ -1,0 +1,99 @@
+.container-header {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.navbar-toggler {
+    box-shadow: none;
+}
+
+.header__logo-icon {
+    margin: 5px 3px 1px 1px;
+}
+
+.header__title--display {
+    display: none;
+}
+
+
+/***    Side bar style  ***/
+body {
+    overflow-x: hidden;
+  }
+  #sidebar-wrapper {
+    min-height: 100vh;
+    margin-left: -15rem;
+    -webkit-transition: margin .25s ease-out;
+    -moz-transition: margin .25s ease-out;
+    -o-transition: margin .25s ease-out;
+    transition: margin .25s ease-out;
+  }
+  #sidebar-wrapper .sidebar-heading {
+    padding: 0.875rem 1.25rem;
+    font-size: 1.2rem;
+  }
+  #sidebar-wrapper .list-group {
+    width: 15rem;
+  }
+  #page-content-wrapper {
+    min-width: 100vw;
+  }
+  #wrapper.toggled #sidebar-wrapper {
+    margin-left: 0;
+  }
+  @media (min-width: 768px) {
+    #sidebar-wrapper {
+      margin-left: 0px;
+    }
+    #page-content-wrapper {
+      min-width: 0;
+      width: 100%;
+    }
+    #wrapper.toggled #sidebar-wrapper {
+      margin-left: -15rem;
+    }
+  }
+/***    End of side bar style   ***/
+/***    Animation icon style    ***/
+.fa-bars-animated {
+    animation-name: collapse-icon-animation;
+    animation-duration: 0.15s;
+    animation-direction: normal;
+    animation-timing-function: linear;
+    animation-fill-mode:forwards;
+}
+
+.fa-times-animated {
+    animation-name: collapse-icon-animation-reverse;
+    animation-duration: 0.25s;
+    animation-direction: normal;
+    animation-timing-function: linear;
+    animation-fill-mode:forwards;
+}
+@keyframes collapse-icon-animation {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(180deg);
+    }
+}
+
+@keyframes collapse-icon-animation-reverse {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/***    end of Animation icon style    ***/
+
+/***    Media Querys    ***/
+@media screen and (min-width: 575px) {
+    .header__title--display {
+        display: block;
+    }
+}
