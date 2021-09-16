@@ -1,0 +1,20 @@
+
+.card {
+    display: flex;
+    flex-direction: row;
+}
+
+.list-group-item--position {
+    width: 85%;
+    margin-inline-start: auto;
+}
+
+.card__footer--position {
+    display: flex;
+    flex-direction: row;
+}
+
+.card__footer--position a {
+    display: flex;
+    flex-direction: column;
+}

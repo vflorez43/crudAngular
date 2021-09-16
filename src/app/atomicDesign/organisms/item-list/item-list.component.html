@@ -1,0 +1,20 @@
+<app-header></app-header>
+<section class="container container-title">
+    <h2 class="title--position">Bienvenido a la lista de {{ title }}</h2>
+</section>
+<app-section-separator></app-section-separator>
+<section class="container container-button">
+    <button class="btn btn-dark btn-lg button--position">
+        Crear un nuevo {{ item }}
+    </button>
+</section>
+<app-section-separator></app-section-separator>
+<section class="container-list container">
+    <div class="row triplet-cards" >
+        <div class="col-4" *ngFor="let item of items;let i = index">
+            <app-item-card [field1]="item"></app-item-card>
+            <app-section-separator></app-section-separator>
+        </div>
+    </div>
+</section>
+<app-footer></app-footer>
