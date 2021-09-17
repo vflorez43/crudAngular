@@ -4,15 +4,15 @@
 </section>
 <app-section-separator></app-section-separator>
 <section class="container container-button">
-    <button class="btn btn-dark btn-lg button--position">
-        Crear un nuevo {{ item }}
-    </button>
+    <a class="btn btn-dark btn-lg button--position" [routerLink]="['/create', numberOption ? 'Hotel' : 'Huesped', buscarHotel]" routerLinkActive="active">
+        Crear un nuevo {{ title }}
+      </a>
 </section>
 <app-section-separator></app-section-separator>
 <section class="container-list container">
     <div class="row triplet-cards" >
         <div class="col-4" *ngFor="let item of items;let i = index">
-            <app-item-card [field1]="item"></app-item-card>
+            <app-item-card [field1]="item.name" [field2]="item.direction" [field3]="item.Estate" [field4]="item.phone" [numberOption]="numberOption"></app-item-card>
             <app-section-separator></app-section-separator>
         </div>
     </div>

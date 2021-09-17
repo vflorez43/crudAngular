@@ -4,9 +4,9 @@
       <div class="bg-light border-right" id="sidebar-wrapper">
         <div class="sidebar-heading">Admin de Hoteles </div>
         <div class="list-group list-group-flush">
-          <a href="#" class="list-group-item list-group-item-action bg-light">Home</a>
-          <a href="#" class="list-group-item list-group-item-action bg-light">Crear Hotel</a>
-          <a href="#" class="list-group-item list-group-item-action bg-light">Lista de Hoteles</a>
+          <a [routerLink]="['/home']" routerLinkActive="router-link-active"  class="list-group-item list-group-item-action bg-light">Home</a>
+          <a [routerLink]="['/create', 'Hotel', '']" routerLinkActive="router-link-active"  class="list-group-item list-group-item-action bg-light">Crear Hotel</a>
+          <a [routerLink]="['/list', 'Hotel', '']" routerLinkActive="router-link-active"  class="list-group-item list-group-item-action bg-light">Lista de Hoteles</a>
         </div>
       </div>
     </div>
@@ -21,7 +21,7 @@
       <i class="fa fa-leaf fs-2"></i>
     </div>
     <div class="header__title">
-      <span class="fs-4">Administrador de hoteles</span>
+      <a class="fs-4" [routerLink]="['/home']" routerLinkActive="router-link-active">Administrador de hoteles</a>
     </div>
   </div>
 </header>

@@ -9,8 +9,12 @@
 </section>
 <section>
   <div class="container container__main-buttons">
-    <button type="button" class="btn btn-dark btn-lg">Crear Hotel</button>
-  <button type="button" class="btn btn-dark btn-lg">Listar Hoteles</button>
+    <a class="btn btn-dark btn-lg" [routerLink]="['/create', 'Hotel', '']" routerLinkActive="active">
+      Crear Hotel
+    </a>
+    <a class="btn btn-dark btn-lg" [routerLink]="['/list', 'Hotel', '']" routerLinkActive="active">
+      Listar Hoteles
+    </a>
   </div>
 </section>
 <app-footer></app-footer>

@@ -12,6 +12,8 @@ import { CreateItemComponent } from './atomicDesign/organisms/create-item/create
 import { SectionSeparatorComponent } from './atomicDesign/molecules/section-separator/section-separator.component';
 import { ItemCardComponent } from './atomicDesign/molecules/item-card/item-card.component';
 
+import { AppRouctingModule } from './app.routing'
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,6 +26,7 @@ import { ItemCardComponent } from './atomicDesign/molecules/item-card/item-card.
     ItemCardComponent
   ],
   imports: [
+    AppRouctingModule,
     BrowserModule,
     CommonModule,
     FormsModule
