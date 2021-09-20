@@ -1,4 +1,4 @@
-<section class="card" style="width: 18rem;">
+<section class="card" style="width: 16rem;">
   <img class="card-img-top" alt="Thumbnail" style="height: 100px; width: 50%; display: block;" src="{{ imgURLFake }}">
   <div class="card__content">
     <div class="card-body">
@@ -12,7 +12,7 @@
     <div class="card-body card__footer--position">
       <a *ngIf="numberOption == 1" [routerLink]="['/list', 'Huespedes', field1]" routerLinkActive="active" class="card-link">Lista de Huespedes</a>
       <app-modal-modifier-items [id]="id" [field1]="field1" [field2]="field2" [field3]="field3" [field4]="field4" [numberOption]="numberOption" [items]="items"></app-modal-modifier-items>
-      <i (click)="delete(id)" class="fa fa-trash fs-2"></i>
+      <i (click)="delete(id, field1)" class="fa fa-trash fs-2"></i>
     </div>
   </div>
 </section>

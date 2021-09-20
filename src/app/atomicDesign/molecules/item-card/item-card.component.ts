@@ -17,6 +17,7 @@ export class ItemCardComponent implements OnInit {
   @Input() field4: number = NaN;
 
   public title: string = '';
+  public buscarHotel: string = '';
 
   public items: any = [];
 
@@ -32,9 +33,9 @@ export class ItemCardComponent implements OnInit {
     const subscribe = this.route.params.subscribe(params => {
       let title = '';
       title = this.route.snapshot.paramMap.get('title')!;
-      let buscarHotel = '';
-      buscarHotel = this.route.snapshot.paramMap.get('hotelName')!;
-      if(title && !buscarHotel){this.numberOption = 1;}
+      this.buscarHotel = '';
+      this.buscarHotel = this.route.snapshot.paramMap.get('hotelName')!;
+      if(title && !this.buscarHotel){this.numberOption = 1;}
       else {this.numberOption = 2}
 
       this.items = null;
@@ -46,7 +47,9 @@ export class ItemCardComponent implements OnInit {
           this.numberOption = 1;
         break;
         case 2:
-          let huespedes = hotelList.filter((hotel: any) => hotel.name == buscarHotel);
+          this.title = '';
+          this.title += `${title}`;
+          let huespedes = hotelList.filter((hotel: any) => hotel.name == this.buscarHotel);
           this.items = huespedes[0].guesList;
         break;
         default:
@@ -56,8 +59,26 @@ export class ItemCardComponent implements OnInit {
     })
   }
 
-  delete(id: number){
-    $('#'+ id).css('display', 'none');
-    this.items = hotelList.filter((item: any) => item.id != id)
+  delete(id: number, name: string){
+    switch (this.numberOption) {
+      case 1:
+        this.items = hotelList.filter((item: any, index) => {
+          if(item.id == id) hotelList.splice(index, 1)
+          return item.id != id
+        });
+        break;
+      case 2:
+        this.items = hotelList.filter((item: any) => {
+          if(item.name == this.buscarHotel){
+            item.guesList.forEach((element: any, indice: number) => {
+                if(element.id == id && name == element.name) hotelList[id].guesList.splice(indice, 1);
+              $('#' + id).css('display', 'none');
+            });
+          }
+        });
+        break;
+      default:
+        break;
+    }
   }
 }

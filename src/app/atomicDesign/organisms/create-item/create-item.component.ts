@@ -34,7 +34,7 @@ export class CreateItemComponent implements OnInit {
       this.buscarHotel = '';
       this.buscarHotel = this.route.snapshot.paramMap.get('hotelName')!;
       if(title && !this.buscarHotel){this.numberOption = 1;}
-      else {this.numberOption = 2}
+      else {this.numberOption = 2; title = 'Huesped'}
 
       this.items = null;
       switch(this.numberOption){
@@ -48,6 +48,8 @@ export class CreateItemComponent implements OnInit {
           this.field4 = hotel.phone;
         break;
         case 2:
+          this.title = '';
+          this.title += `${title}`; 
           let huespedes = hotelList.filter((hotel: any) => hotel.name == this.buscarHotel);
           this.items = huespedes[0].guesList;
           this.field1 = guest.name;

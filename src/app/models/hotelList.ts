@@ -7,14 +7,14 @@ export var hotelList = [
         Estate: "Activo",
         guesList: [
             {
-                id: 1,
+                id: 0,
                 name: 'Guilson',
                 document: '12312313',
                 email: 'Guilson@guilson.guilson',
                 phone: '123123323'
             },
             {
-                id: 2,
+                id: 1,
                 name: 'Chuilson',
                 document: 'Numero de Documento',
                 email: 'Guilson@guilson.guilson',
@@ -30,16 +30,31 @@ export var hotelList = [
         Estate: "Activo",
         guesList: [
             {
-                id: 1,
-                name: 'Madarilson',
-                document: 'Numero de Documento',
+                id: 0,
+                name: 'Julio',
+                document: '123123',
                 email: 'Guilson@guilson.guilson',
                 phone: '123123323'
             },
             {
+                id: 1,
+                name: 'Berrio',
+                document: '123123',
+                email: 'CorrGuilson@guilson.guilsoneo',
+                phone: '123123323'
+            },
+            {
                 id: 2,
-                name: 'Nombre',
-                document: 'Numero de Documento',
+                name: 'Merrio',
+                document: '1231233',
+                email: 'CorrGuilson@guilson.guilsoneo',
+                phone: '123123323'
+            }
+            ,
+            {
+                id: 3,
+                name: 'Sonrio',
+                document: '12312332',
                 email: 'CorrGuilson@guilson.guilsoneo',
                 phone: '123123323'
             }
@@ -53,16 +68,16 @@ export var hotelList = [
         Estate: "Activo",
         guesList: [
             {
-                id: 1,
+                id: 0,
                 name: 'Budilson',
-                document: 'Numero de Documento',
+                document: '123123ocumento',
                 email: 'Guilson@guilson.guilson',
                 phone: '123123323'
             },
             {
-                id: 2,
+                id: 1,
                 name: "Rei 'Mamacita' Ayanami",
-                document: 'Numero de Documento',
+                document: '12323nto',
                 email: 'Guilson@guilson.guilson',
                 phone: '123123323'
             }

@@ -37,8 +37,11 @@ export class ItemListComponent implements OnInit {
           this.numberOption = 1;
         break;
         case 2:
+          this.title = '';
+          this.title += `${title}`;
           let huespedes = hotelList.filter((hotel: any) => hotel.name == this.buscarHotel);
           this.items = huespedes[0].guesList;
+          this.numberOption = 2;
         break;
         default:
           alert('error');

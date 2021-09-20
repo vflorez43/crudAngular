@@ -1,11 +1,14 @@
-
 .card {
     display: flex;
     flex-direction: row;
 }
 
+.list-group-item{
+    padding: 0.5rem 0rem;
+}
+
 .list-group-item--position {
-    width: 85%;
+    width: 95%;
     margin-inline-start: auto;
 }
 
