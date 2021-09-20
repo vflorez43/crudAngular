@@ -2,7 +2,6 @@ import { Component, OnInit, Output } from '@angular/core';
 import { ActivatedRoute, Router, ParamMap } from '@angular/router';
 
 import { hotelList } from 'src/app/models/hotelList';
-// import { guestList } from 'src/app/environment/hotelList';
 
 @Component({
   selector: 'app-item-list',
@@ -21,33 +20,31 @@ export class ItemListComponent implements OnInit {
   constructor(private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    // const title = this.route.snapshot.paramMap.get('title')!;
+    const subscribe = this.route.params.subscribe(params => {
+      let title = '';
+      title = this.route.snapshot.paramMap.get('title')!;
+      this.buscarHotel = '';
+      this.buscarHotel = this.route.snapshot.paramMap.get('hotelName')!;
+      if(title && !this.buscarHotel){this.numberOption = 1;}
+      else {this.numberOption = 2}
 
-
-    // this.route.queryParams.subscribe(params => {
-    //   this.buscarHotel = params['buscarHotel'];
-    // });
-
-
-
-
-    const title1 = this.route.params.subscribe(params => {
-      let title = this.route.snapshot.paramMap.get('title')!;
-      if(title){
-        this.title = '';
-        this.title += `${title}`;
-        if(title == 'Hotel'){
+      this.items = null;
+      switch(this.numberOption){
+        case 1:
+          this.title = '';
+          this.title += `${title}`;
           this.items = hotelList;
           this.numberOption = 1;
-        }else{
-          this.buscarHotel = this.route.snapshot.paramMap.get('hotelName')!;
-          let huespedes = this.items.filter((hotel: any) => hotel.name == this.buscarHotel);
+        break;
+        case 2:
+          let huespedes = hotelList.filter((hotel: any) => hotel.name == this.buscarHotel);
           this.items = huespedes[0].guesList;
-          this.numberOption = 2;
-        }
+        break;
+        default:
+          alert('error');
+          break;
       }
     })
-    
   }
   
 

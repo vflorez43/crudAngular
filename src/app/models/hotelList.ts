@@ -1,19 +1,26 @@
-import { amazoniaGuest } from './guestList';
-import { chinchelejoGuest } from './guestList';
-import { MadaraKunGuest } from './guestList';
-import { Aminoacido } from './guestList';
-import { ChingaVida } from './guestList';
-import { DekartaMundatta } from './guestList';
-import { DekartaZenyyatta } from './guestList';
-
-export const hotelList = [
+export var hotelList = [
     {
         id: 1,
         name: "Amazonia",
         direction: "Cl 78 # 78 - 78",
         phone: "312123123",
         Estate: "Activo",
-        guesList: amazoniaGuest
+        guesList: [
+            {
+                id: 1,
+                name: 'Guilson',
+                document: '12312313',
+                email: 'Guilson@guilson.guilson',
+                phone: '123123323'
+            },
+            {
+                id: 2,
+                name: 'Chuilson',
+                document: 'Numero de Documento',
+                email: 'Guilson@guilson.guilson',
+                phone: '123123'
+            }
+        ]
     },
     {
         id: 2,
@@ -21,7 +28,22 @@ export const hotelList = [
         direction: "Cl 78 # 78 - 78",
         phone: "312123123",
         Estate: "Activo",
-        guesList: chinchelejoGuest
+        guesList: [
+            {
+                id: 1,
+                name: 'Madarilson',
+                document: 'Numero de Documento',
+                email: 'Guilson@guilson.guilson',
+                phone: '123123323'
+            },
+            {
+                id: 2,
+                name: 'Nombre',
+                document: 'Numero de Documento',
+                email: 'CorrGuilson@guilson.guilsoneo',
+                phone: '123123323'
+            }
+        ]
     },
     {
         id: 3,
@@ -29,7 +51,22 @@ export const hotelList = [
         direction: "Cl 78 # 78 - 78",
         phone: "312123123",
         Estate: "Activo",
-        guesList: MadaraKunGuest
+        guesList: [
+            {
+                id: 1,
+                name: 'Budilson',
+                document: 'Numero de Documento',
+                email: 'Guilson@guilson.guilson',
+                phone: '123123323'
+            },
+            {
+                id: 2,
+                name: "Rei 'Mamacita' Ayanami",
+                document: 'Numero de Documento',
+                email: 'Guilson@guilson.guilson',
+                phone: '123123323'
+            }
+        ]
     },
     {
         id: 4,
@@ -37,7 +74,7 @@ export const hotelList = [
         direction: "Cl 78 # 78 - 78",
         phone: "312123123",
         Estate: "Activo",
-        guesList: Aminoacido
+        guesList: []
     },
     {
         id: 5,
@@ -45,7 +82,7 @@ export const hotelList = [
         direction: "Cl 78 # 78 - 78",
         phone: "312123123",
         Estate: "Activo",
-        guesList: ChingaVida
+        guesList: []
     },
     {
         id: 6,
@@ -53,7 +90,7 @@ export const hotelList = [
         direction: "Cl 78 # 78 - 78",
         phone: "312123123",
         Estate: "Activo",
-        guesList: DekartaMundatta
+        guesList: []
     },
     {
         id: 7,
@@ -61,6 +98,6 @@ export const hotelList = [
         direction: "Cl 78 # 78 - 78",
         phone: "312123123",
         Estate: "Activo",
-        guesList: DekartaZenyyatta
+        guesList: []
     },
 ]

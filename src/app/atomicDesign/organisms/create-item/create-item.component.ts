@@ -5,7 +5,6 @@ import { ActivatedRoute, Router, ParamMap } from '@angular/router';
 import { guest } from 'src/app/models/guest';
 import { hotel } from 'src/app/models/hotel';
 import { hotelList } from 'src/app/models/hotelList';
-// import { guestList } from 'src/app/models/guestList';
 
 @Component({
   selector: 'app-create-item',
@@ -23,42 +22,46 @@ export class CreateItemComponent implements OnInit {
   public field4: string = '';
 
   public hotelName: string = '';
+  public buscarHotel: string = '';
+
+  public items: any = [];
 
   constructor(private route: ActivatedRoute) {
   }
 
   ngOnInit(): void {
+    const subscribe = this.route.params.subscribe(params => {
+      let title = '';
+      title = this.route.snapshot.paramMap.get('title')!;
+      this.buscarHotel = '';
+      this.buscarHotel = this.route.snapshot.paramMap.get('hotelName')!;
+      if(title && !this.buscarHotel){this.numberOption = 1;}
+      else {this.numberOption = 2}
 
-    this.route.queryParams.subscribe(params => {
-      this.hotelName = this.route.snapshot.paramMap.get('hotelName')!;
-    });
-
-
-
-    const title = this.route.snapshot.paramMap.get('title')!;
-    if(title){
-      this.title += `${title}`;
-      if(title == 'Hotel') this.numberOption = 1;
-      else this.numberOption = 2;
-      switch (this.numberOption) {
+      this.items = null;
+      switch(this.numberOption){
         case 1:
+          this.title = '';
+          this.title += `${title}`;
+          this.items = hotelList;
           this.field1 = hotel.name;
           this.field2 = hotel.direction;
           this.field3 = hotel.Estate;
           this.field4 = hotel.phone;
-          break;
+        break;
         case 2:
+          let huespedes = hotelList.filter((hotel: any) => hotel.name == this.buscarHotel);
+          this.items = huespedes[0].guesList;
           this.field1 = guest.name;
           this.field2 = guest.document;
           this.field3 = guest.email;
           this.field4 = guest.phone;
-          break;
-      
+        break;
         default:
-          alert('Error....')
-          break;
+          alert('error');
+        break;
       }
-    }
+    })
   }
 
   saveData(form: NgForm){
@@ -70,27 +73,25 @@ export class CreateItemComponent implements OnInit {
           direction: form.value.field2,
           phone: form.value.field4,
           Estate: form.value.field3,
-          guesList: null!
+          guesList: []
         }
-        hotelList.push(newHotel)
+        hotelList.push(newHotel);
         break;
       case 2:
         let newGuest = {
-          // id: guestList.length + 1,
-          id: 1,
+          id: this.items.length + 1,
           name: form.value.field1,
           document: form.value.field2,
-          email: form.value.field3,
           phone: form.value.field4,
+          email: form.value.field3
         }
-        // guestList.push(newGuest)
+        let huespedes = hotelList.filter((hotel: any) => hotel.name == this.buscarHotel);
+        huespedes[0].guesList.push(newGuest);
         break;
-    
       default:
+        alert('error');
         break;
     }
-
-    hotelList.push()
   }
 
 }

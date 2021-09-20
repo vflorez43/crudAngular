@@ -1,4 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { ActivatedRoute, Router, ParamMap } from '@angular/router';
+
+import { hotelList } from 'src/app/models/hotelList';
 
 @Component({
   selector: 'app-item-card',
@@ -7,10 +10,15 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class ItemCardComponent implements OnInit {
 
+  @Input() id: number = NaN;
   @Input() field1: string = '';
   @Input() field2: string = '';
   @Input() field3: string = '';
   @Input() field4: number = NaN;
+
+  public title: string = '';
+
+  public items: any = [];
 
   @Input() numberOption: number = 0; // Determinates the menu to know if we need Hotel options or guest options, and add more options in the future
 
@@ -18,9 +26,38 @@ export class ItemCardComponent implements OnInit {
   public imgURLFake: string = 'https://media-exp1.licdn.com/dms/image/C560BAQH9Cnv1weU07g/company-logo_200_200/0/1575479070098?e=2159024400&v=beta&t=QM9VSoWVooxDwCONWh22cw0jBBlBPcBOqAxbZIE18jw'
   
 
-  constructor() { }
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    const subscribe = this.route.params.subscribe(params => {
+      let title = '';
+      title = this.route.snapshot.paramMap.get('title')!;
+      let buscarHotel = '';
+      buscarHotel = this.route.snapshot.paramMap.get('hotelName')!;
+      if(title && !buscarHotel){this.numberOption = 1;}
+      else {this.numberOption = 2}
+
+      this.items = null;
+      switch(this.numberOption){
+        case 1:
+          this.title = '';
+          this.title += `${title}`;
+          this.items = hotelList;
+          this.numberOption = 1;
+        break;
+        case 2:
+          let huespedes = hotelList.filter((hotel: any) => hotel.name == buscarHotel);
+          this.items = huespedes[0].guesList;
+        break;
+        default:
+          alert('error');
+          break;
+      }
+    })
   }
 
+  delete(id: number){
+    $('#'+ id).css('display', 'none');
+    this.items = hotelList.filter((item: any) => item.id != id)
+  }
 }

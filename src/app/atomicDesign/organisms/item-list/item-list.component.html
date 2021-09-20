@@ -11,8 +11,8 @@
 <app-section-separator></app-section-separator>
 <section class="container-list container">
     <div class="row triplet-cards" >
-        <div class="col-4" *ngFor="let item of items;let i = index">
-            <app-item-card [field1]="item.name" [field2]="item.direction" [field3]="item.Estate" [field4]="item.phone" [numberOption]="numberOption"></app-item-card>
+        <div class="col-4" id="{{item.id}}" *ngFor="let item of items;let i = index">
+            <app-item-card [id]="item.id" [field1]="item.name" [field2]="item.direction || item.document" [field3]="item.Estate || item.email" [field4]="item.phone" [numberOption]="numberOption"></app-item-card>
             <app-section-separator></app-section-separator>
         </div>
     </div>
