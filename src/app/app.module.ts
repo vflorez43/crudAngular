@@ -3,6 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './atomicDesign/molecules/header/header.component';
 import { FooterComponent } from './atomicDesign/molecules/footer/footer.component';
@@ -12,7 +14,8 @@ import { CreateItemComponent } from './atomicDesign/organisms/create-item/create
 import { SectionSeparatorComponent } from './atomicDesign/molecules/section-separator/section-separator.component';
 import { ItemCardComponent } from './atomicDesign/molecules/item-card/item-card.component';
 
-import { AppRouctingModule } from './app.routing'
+import { AppRouctingModule } from './app.routing';
+import { ModalModifierItemsComponent } from './atomicDesign/molecules/modal-modifier-items/modal-modifier-items.component'
 
 @NgModule({
   declarations: [
@@ -23,13 +26,15 @@ import { AppRouctingModule } from './app.routing'
     ItemListComponent,
     CreateItemComponent,
     SectionSeparatorComponent,
-    ItemCardComponent
+    ItemCardComponent,
+    ModalModifierItemsComponent
   ],
   imports: [
     AppRouctingModule,
     BrowserModule,
     CommonModule,
-    FormsModule
+    FormsModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent],

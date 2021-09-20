@@ -11,8 +11,10 @@
     </ul>
     <div class="card-body card__footer--position">
       <a *ngIf="numberOption == 1" [routerLink]="['/list', 'Huespedes', field1]" routerLinkActive="active" class="card-link">Lista de Huespedes</a>
-      <i (click)="delete(id)" class="fa fa-edit fs-2"></i>
+      <app-modal-modifier-items [id]="id" [field1]="field1" [field2]="field2" [field3]="field3" [field4]="field4" [numberOption]="numberOption" [items]="items"></app-modal-modifier-items>
       <i (click)="delete(id)" class="fa fa-trash fs-2"></i>
     </div>
   </div>
 </section>
+
+

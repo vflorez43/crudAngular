@@ -15,14 +15,12 @@ export class CreateItemComponent implements OnInit {
 
   public title: string = '';
   public numberOption: number = 0; // Determinates the menu to know if we need Hotel options or guest options, and add more options in the future
+  public buscarHotel: string = '';
 
   public field1: string = '';
   public field2: string = '';
   public field3: string = '';
   public field4: string = '';
-
-  public hotelName: string = '';
-  public buscarHotel: string = '';
 
   public items: any = [];
 
